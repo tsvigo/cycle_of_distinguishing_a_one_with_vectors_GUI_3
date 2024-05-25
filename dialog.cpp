@@ -103,19 +103,19 @@ if (!filePath.isEmpty()) {
         
         {
             
-            list_of_neurons[var]=list_of_neurons[var]+  (list_of_neurons[neuron_index]/ list_of_synapses[synapse_index]);    
+            list_of_neurons[var]=list_of_neurons[var]+  (list_of_neurons[neuron_index]* list_of_synapses[synapse_index]);    
         } // складываем нейроны
     }
 // вычисляем последний решающий нейрон:
     for (int   neuron_index = 100, synapse_index = 10000; neuron_index < 200;   ++neuron_index, ++synapse_index)
     {
-        list_of_neurons[200] = list_of_neurons[200] + (list_of_neurons[neuron_index] / list_of_synapses[synapse_index]);
+        list_of_neurons[200] = list_of_neurons[200] + (list_of_neurons[neuron_index] * list_of_synapses[synapse_index]);
     }
 // считаем ошибку:
 
           std::cout << "list_of_neurons[200] = " << list_of_neurons[200]<< std::endl;
 //
-    if (variable_error<0) // to the exit
+    if (list_of_neurons[200]<0) // to the exit
         goto c;
 //
     if (list_of_synapses[10100]==-9223372036854775807) // to the exit
@@ -125,12 +125,12 @@ if (!filePath.isEmpty()) {
     }
     // 115 строка     
  e:
-    if (list_of_synapses[variable_synapse_index_counter] <9223372036854775806)
-        list_of_synapses[variable_synapse_index_counter]  =  list_of_synapses[variable_synapse_index_counter]+
+    if (list_of_synapses[variable_synapse_index_counter] >-9223372036854775807)
+        list_of_synapses[variable_synapse_index_counter]  =  list_of_synapses[variable_synapse_index_counter]-
       velichina_uvelicheniya_sinapsa;//  1;
     //     
     // 
-    if (list_of_synapses[variable_synapse_index_counter] ==9223372036854775806)
+    if (list_of_synapses[variable_synapse_index_counter] ==-9223372036854775807)
     {
         variable_synapse_index_counter = variable_synapse_index_counter+1;
         goto e;
